@@ -1,5 +1,7 @@
 # Websocket: How it Works and How it Differs from HTTP
 
+Give purpose of document
+
 ## What is Websocket
 
 Websocket is a connection between a server and client that allows for communication to be initiated both ways. This allows a server to broadcast different notifications to clients without requiring the client to send a request first. Websocket is an upgrade added to regular HTTP (Hypertext Transfer Protocol); HTTP allows a server to respond to client requests and is the predecessor to the type of connections used to communicate between your web browser and most websites.
