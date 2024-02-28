@@ -10,7 +10,7 @@ Websocket is a connection between a server and client that allows for communicat
 
 When adding Websocket functionality to a server we open a pathway for clients to reach with the following line of code: `Spark.webSocket("/connect",WebSocketHandler.class);`. This allows the client to make the connection to the server for live updates and notifications as shown in Figure 1. When this connection is live the client can send messages to the server and the server is able to send messages to single clients or multiple across the network. The "onMessage"  function must be overridden so that the client knows what to do when messages are received from the server. In the chess example in Figure 1 when a client receives a message it can be one of three types; Depending on the type the client displays either an error a notification or refreshes the game to show new moves.
 
-*Figure 1*
+#### Client side Websocket example
 ```
 public WebSocketClient(String uri, ChessGame.TeamColor color, Game game) throws Exception {
         this.color = color;
@@ -43,15 +43,17 @@ public WebSocketClient(String uri, ChessGame.TeamColor color, Game game) throws 
         });
     }
 ```
+*Figure 1*
 
 ## Why Should Websocket be Used
 HTTP communication is very useful in situations where users don’t need to connect with each other, and only need to receive information when it is requested. An example of this is When you are on a web browser and click on a link, this sends a request from your machine to a server, the server then retrieves and gives you the website that is at the end of the link. You only need to go to a website if you first request it. This is less useful when you want to connect with other users on a server or receive live updates and notifications. There were many shortcuts created to solve this but none were very efficient.
 
 WebSocket was born in 2011 in an effort to make it easier to do this kind of live communication. In HTTP a server is unable to reach any of the clients that are connected but with WebSocket a list of active connections allows the server to know who is connected and reach out to those users in order to deliver messages. The server is then able to receive a message from one user, say to login, and convert that into a message to tell others that that user is active. Since the server is able to initiate communication there is reduced network traffic and each client does not have to periodically reach out to the server to receive those messages. A server is also able to make calls to different API's in order to send gain more information to give users. see Figure 2
 
-*Figure 2*
-
+#### Websocket Commpared to HTTP
 ![Websocket vs. HTTP communnication figure 1](https://ambassadorpatryk.com/wp-content/uploads/2020/02/web-socket.png) 
+
+*Figure 2*
 
 ## Conclusion
 
